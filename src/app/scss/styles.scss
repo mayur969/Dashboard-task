@@ -257,8 +257,9 @@ p {
         }
 
         .btn {
-            border: 2px solid violet;
-            // background-color: ;
+            border: 2px solid #ece0fc;
+            background-color: #f8f5fe;
+            color: #7c61c9;
             border-radius: 16px;
             font-size: 16px;
             padding: 8px;
@@ -338,7 +339,9 @@ p {
                 &:last-child {
                     padding-right: 16px;
                 }
-
+                &:hover{
+                    background-color: $tertiary;
+                }
             }
 
             .profile-info {
@@ -423,7 +426,6 @@ p {
                 font-size: 18px;
                 font-weight: 500;
                 color: $secondary;
-
             }
 
             .license-use {
@@ -502,11 +504,7 @@ p {
         ul {
             list-style: none;
             padding: 0;
-
-
             .profile {
-                // width: 50px;
-                // height: 50px;
                 padding-top: 20px;
                 .profile-icon {
                     padding: 16px;
