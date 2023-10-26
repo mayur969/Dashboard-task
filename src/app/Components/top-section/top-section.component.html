@@ -1,0 +1,92 @@
+<div class="top-section">
+    <div class="d-flex just-space-between header-container">
+        <h1 class="heading">Welcome back, Olivia</h1>
+        <div class="d-flex just-space-around g-16">
+            <span class="material-symbols-outlined">
+                search
+            </span>
+            <div>
+                <button class="btn">
+                    <span class="material-symbols-outlined">
+                        tune
+                    </span> Customize
+                </button>
+            </div>
+            <div>
+                <button class="btn">
+                    <span class="material-symbols-outlined">
+                        cloud_download
+                    </span>
+                    Export
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex chart-section">
+        <div class="left-chart-container">
+            <div class="d-flex just-space-between chart-header">
+                <div class="d-flex">
+                    <img src="../../../assets/img/logo.jpg" alt="">
+                    <div>
+                        <h4 class="heading">Vendor breakdown</h4>
+                        <p class="sub-heading">Keep track of vendors and their security ratings</p>
+                    </div>
+                </div>
+                <div>
+                    <span class="material-symbols-outlined">
+                        more_vert
+                    </span>
+                </div>
+            </div>
+            <div class="chart">
+                <!-- <ngx-charts-bar-vertical-stacked [view]="view" [scheme]="colorScheme" [results]="multi"
+                    [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend"
+                    [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+                    [yAxisLabel]="yAxisLabel">
+                </ngx-charts-bar-vertical-stacked> -->
+                <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"
+                    style="width: 100%; height: 300px; display: block;"></highcharts-chart>
+
+            </div>
+            <div class="d-flex just-end chart-footer">
+                <button class="btn">View full report</button>
+            </div>
+        </div>
+        <div class="right-chart-container">
+            <div class="d-flex just-space-between chart-header">
+                <div class="d-flex ">
+                    <img src="" alt="">
+                    <div>
+                        <h4 class="heading">Vendor Monitored</h4>
+                        <p class="sub-heading">You're using 80% of available spots</p>
+                    </div>
+                </div>
+                <div>
+                    <span class="material-symbols-outlined">
+                        more_vert
+                    </span>
+                </div>
+            </div>
+            <div class="chart">
+                <highcharts-chart [Highcharts]="Highcharts" [options]="guageChartOptions" class="guage-chart"></highcharts-chart>
+                <span class="growth">
+                    <span class="material-symbols-outlined">
+                    trending_up
+                    </span> 10%
+                </span>
+                <div>
+                    <p class="title">You've almost reached your limit</p>
+                    <p class="sub-title">You have used 80% of your available spots.</p>
+                    <p class="sub-title">Upgrade plan to monitor more vendors.</p>
+                </div>
+            </div>
+            <div class="d-flex just-end chart-footer">
+                <button class="btn">
+                    <span class="material-symbols-outlined">
+                        bolt
+                    </span> Upgrade plan
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

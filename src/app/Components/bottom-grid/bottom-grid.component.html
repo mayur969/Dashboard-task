@@ -1,0 +1,110 @@
+<div class="bottom-grid">
+    <div class="table-header">
+        <div class="d-flex">
+            <h4 class="title">Team members</h4>
+            <button class="btn">100 users</button>
+        </div>
+        <span class="material-symbols-outlined">
+            more_vert
+        </span>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <input type="checkbox" name="" id="selectAll" (change)="toggleCheckbox($event)">
+                    <label for="selectAll"></label>
+                </th>
+                <th *ngFor="let column of userData?.grid_columns">{{column.column_name}}</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of records, index as i">
+                <td>
+                    <input type="checkbox" name="" id="{{data.id}}">
+                    <label for="{{data.id}}"></label>
+                </td>
+                <td>
+                    <div class="d-flex profile-info">
+                        <span class="profile-icon">{{data.name.first_name[0]}} {{data.name.last_name[0]}}</span>
+                        <div class="user-info">
+                            <h4 class="user-name">{{data.name.first_name}} {{data.name.last_name}}</h4>
+                            <h5 class="social-handle">{{data.name.handle}}</h5>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <span
+                        [ngClass]="{ 'customer' : data.status === 'Customer', 'churned' : data.status === 'Churned'}">{{data.status}}</span>
+                </td>
+                <td class="role">{{data.role}}</td>
+                <td>
+                    <div class="d-flex g-16 license-use">
+                        <div class="license-progress">
+                            <div class="progress-bar" [ngStyle]="{'width': data.license_used +'%'}"></div>
+                        </div>
+                        <span>{{data.license_used}}%</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="teams">
+                        <div *ngFor="let team of data?.teams"
+                            [ngStyle]="{'color': team.text_color, 'background-color': team.background_color}"
+                            class="team">
+                            <span>{{team.value}}</span>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <button class="btn-secondary">
+                        <span class="material-symbols-outlined"
+                            (click)="deleteEle(data, pageNumber === 1 ? i : i+((pageNumber-1)*10))">
+                            delete
+                        </span>
+                    </button>
+                    <button class="btn-secondary">
+
+                        <span class="material-symbols-outlined" (click)="editEle(data)">
+                            edit
+                        </span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="table-footer">
+        <button class="btn" (click)="prevPage()">
+            <span class="material-symbols-outlined">
+                arrow_back
+            </span>
+            Prev
+        </button>
+        <div class="d-flex" [innerHTML]="pagesCount">
+    
+        </div>
+        <button class="btn" (click)="nextPage()">
+            Next
+            <span class="material-symbols-outlined">
+                arrow_forward
+            </span>
+        </button>
+    </div>
+
+    <div class="table-nav">
+        <ul>
+            <li>
+                <img src="../../../assets/img/table-nav-1.jpg" alt="" height="50px" width="50px">
+            </li>
+            <li>
+                <img src="../../../assets/img/table-nav-2.jpg" alt="" height="50px" width="50px">
+            </li>
+            <li>
+                <div class="profile">
+                    <span class="profile-icon">C W</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
