@@ -12,7 +12,7 @@ import { DeleteDialogComponent } from "src/app/shared/dialog/delete-dialog-compo
 
 export class AppBottomGridComponent implements OnInit{
     userData: any;
-    records: any;
+    records: Array<object>;
     pageNumber: number;
     pages: number;
     pagesCount: string;
@@ -56,7 +56,6 @@ export class AppBottomGridComponent implements OnInit{
         }else{
             this.pageNumber = 1;
         }
-        console.log(this.pageNumber)
     }
 
     toggleCheckbox(e){
@@ -64,22 +63,16 @@ export class AppBottomGridComponent implements OnInit{
             var checkbox = document.getElementById(`${dataId.id}`) as HTMLInputElement;
             checkbox.checked = e.target.checked;
         }
-        console.log("hello")
     }
 
-    hello(id){
-        console.log("hello", id)
-    }
 
     deleteEle(user, index){
-        console.log(index)
         const dialogRef = this.dialog.open(DeleteDialogComponent, {
             width: '600px', 
             data: user,
         });
         
         dialogRef.afterClosed().subscribe(result => {
-            console.log('Dialog closed with result:', result);
             if(result === "delete"){
                 this.userData.grid_data.splice(index, 1);
                 this.pagination(this.pageNumber);
@@ -88,7 +81,6 @@ export class AppBottomGridComponent implements OnInit{
     }
 
     editEle(id){
-        console.log(id)
         this.dialog.open(EditDialogComponent, {
             width: '400px', 
             data: id,

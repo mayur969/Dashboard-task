@@ -7,7 +7,7 @@ import { Component, OnInit } from "@angular/core";
 
 export class AppSideBarComponent implements OnInit {
 
-    navList: any[] =[
+    navList: Array<object> =[
         {
             id: "1",
             path: "../../../assets/img/nav-1.jpg"
